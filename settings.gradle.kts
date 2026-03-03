@@ -1,3 +1,4 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     repositories {
         google {
@@ -26,3 +27,4 @@ rootProject.name = "ComposeFlowDiagram"
 include(":sample:app")
 include(":sample:feature:login")
 include(":annotations")
+include(":processor")
