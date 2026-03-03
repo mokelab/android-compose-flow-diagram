@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -34,6 +35,8 @@ fun LoginScreen(
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
+    val errorEmptyFields = stringResource(R.string.login_error_empty_fields)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,14 +45,14 @@ fun LoginScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "ログイン",
+            text = stringResource(R.string.login_title),
             style = MaterialTheme.typography.headlineMedium,
         )
         Spacer(modifier = Modifier.height(32.dp))
         OutlinedTextField(
             value = username,
             onValueChange = { username = it },
-            label = { Text("ユーザー名") },
+            label = { Text(stringResource(R.string.field_username)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
         )
@@ -57,7 +60,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("パスワード") },
+            label = { Text(stringResource(R.string.field_password)) },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -76,7 +79,7 @@ fun LoginScreen(
             onClick = {
                 // 仮実装: 入力が空でなければログイン成功とする
                 if (username.isBlank() || password.isBlank()) {
-                    errorMessage = "ユーザー名とパスワードを入力してください"
+                    errorMessage = errorEmptyFields
                 } else {
                     errorMessage = null
                     onLoginSuccess()
@@ -84,11 +87,11 @@ fun LoginScreen(
             },
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("ログイン")
+            Text(stringResource(R.string.login_button))
         }
         Spacer(modifier = Modifier.height(16.dp))
         TextButton(onClick = onNavigateToRegister) {
-            Text("アカウントをお持ちでない方はこちら")
+            Text(stringResource(R.string.login_navigate_to_register))
         }
     }
 }

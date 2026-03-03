@@ -1,0 +1,19 @@
+<resources>
+    <!-- Login screen -->
+    <string name="login_title">ログイン</string>
+    <string name="login_button">ログイン</string>
+    <string name="login_error_empty_fields">ユーザー名とパスワードを入力してください</string>
+    <string name="login_navigate_to_register">アカウントをお持ちでない方はこちら</string>
+
+    <!-- Register screen -->
+    <string name="register_title">新規登録</string>
+    <string name="register_button">登録する</string>
+    <string name="register_field_confirm_password">パスワード（確認）</string>
+    <string name="register_error_empty_fields">すべての項目を入力してください</string>
+    <string name="register_error_password_mismatch">パスワードが一致しません</string>
+    <string name="register_navigate_to_login">すでにアカウントをお持ちの方はこちら</string>
+
+    <!-- Common fields -->
+    <string name="field_username">ユーザー名</string>
+    <string name="field_password">パスワード</string>
+</resources>

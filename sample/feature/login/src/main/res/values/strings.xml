@@ -1,0 +1,19 @@
+<resources>
+    <!-- Login screen -->
+    <string name="login_title">Login</string>
+    <string name="login_button">Login</string>
+    <string name="login_error_empty_fields">Please enter your username and password</string>
+    <string name="login_navigate_to_register">Don\'t have an account? Sign up</string>
+
+    <!-- Register screen -->
+    <string name="register_title">Sign Up</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_field_confirm_password">Confirm Password</string>
+    <string name="register_error_empty_fields">Please fill in all fields</string>
+    <string name="register_error_password_mismatch">Passwords do not match</string>
+    <string name="register_navigate_to_login">Already have an account? Log in</string>
+
+    <!-- Common fields -->
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+</resources>

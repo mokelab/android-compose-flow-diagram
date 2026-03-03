@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -35,6 +36,9 @@ fun RegisterScreen(
     var confirmPassword by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
+    val errorEmptyFields = stringResource(R.string.register_error_empty_fields)
+    val errorPasswordMismatch = stringResource(R.string.register_error_password_mismatch)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,14 +47,14 @@ fun RegisterScreen(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = "新規登録",
+            text = stringResource(R.string.register_title),
             style = MaterialTheme.typography.headlineMedium,
         )
         Spacer(modifier = Modifier.height(32.dp))
         OutlinedTextField(
             value = username,
             onValueChange = { username = it },
-            label = { Text("ユーザー名") },
+            label = { Text(stringResource(R.string.field_username)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
         )
@@ -58,7 +62,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("パスワード") },
+            label = { Text(stringResource(R.string.field_password)) },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -68,7 +72,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
-            label = { Text("パスワード（確認）") },
+            label = { Text(stringResource(R.string.register_field_confirm_password)) },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -88,9 +92,9 @@ fun RegisterScreen(
                 // 仮実装: 入力チェックのみ行い、問題なければ登録成功とする
                 when {
                     username.isBlank() || password.isBlank() || confirmPassword.isBlank() ->
-                        errorMessage = "すべての項目を入力してください"
+                        errorMessage = errorEmptyFields
                     password != confirmPassword ->
-                        errorMessage = "パスワードが一致しません"
+                        errorMessage = errorPasswordMismatch
                     else -> {
                         errorMessage = null
                         onRegisterSuccess()
@@ -99,11 +103,11 @@ fun RegisterScreen(
             },
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("登録する")
+            Text(stringResource(R.string.register_button))
         }
         Spacer(modifier = Modifier.height(16.dp))
         TextButton(onClick = onNavigateToLogin) {
-            Text("すでにアカウントをお持ちの方はこちら")
+            Text(stringResource(R.string.register_navigate_to_login))
         }
     }
 }
