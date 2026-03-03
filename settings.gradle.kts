@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "ComposeFlowDiagram"
 include(":sample:app")
 include(":sample:feature:login")
+include(":annotations")
