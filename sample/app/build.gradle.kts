@@ -6,15 +6,15 @@ plugins {
 android {
     namespace = "com.mokelab.android.compose.flow.diagram.sample"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(libs.versions.compileSdk.get().toInt()) {
+            minorApiLevel = libs.versions.compileSdkMinor.get().toInt()
         }
     }
 
     defaultConfig {
         applicationId = "com.mokelab.android.compose.flow.diagram.sample"
-        minSdk = 24
-        targetSdk = 36
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
