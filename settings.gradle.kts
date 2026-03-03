@@ -23,4 +23,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ComposeFlowDiagram"
-include(":app")
+include(":sample:app")
