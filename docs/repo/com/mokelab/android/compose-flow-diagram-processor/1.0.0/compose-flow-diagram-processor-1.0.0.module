@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.mokelab.android",
+    "module": "compose-flow-diagram-processor",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.3.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "compose-flow-diagram-processor-1.0.0.jar",
+          "url": "compose-flow-diagram-processor-1.0.0.jar",
+          "size": 9370,
+          "sha512": "0906157e56848876e63636527e03a0b19aba5e7603cbde458f0723dad456fe999f1dffe0fbc185e0105c7499fff5bcaa6e7fa6c942e004592660662107a97342",
+          "sha256": "d1b740ccc852523a35893efbc631a45ced0f59ceee14dada063fb4ab7b7f99e0",
+          "sha1": "54aea4533195605e630b075b154e61c441c77582",
+          "md5": "65de85ba9a704a28b936e5157cd45ec8"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.mokelab.android",
+          "module": "compose-flow-diagram-annotations",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.google.devtools.ksp",
+          "module": "symbol-processing-api",
+          "version": {
+            "requires": "2.3.4"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "compose-flow-diagram-processor-1.0.0.jar",
+          "url": "compose-flow-diagram-processor-1.0.0.jar",
+          "size": 9370,
+          "sha512": "0906157e56848876e63636527e03a0b19aba5e7603cbde458f0723dad456fe999f1dffe0fbc185e0105c7499fff5bcaa6e7fa6c942e004592660662107a97342",
+          "sha256": "d1b740ccc852523a35893efbc631a45ced0f59ceee14dada063fb4ab7b7f99e0",
+          "sha1": "54aea4533195605e630b075b154e61c441c77582",
+          "md5": "65de85ba9a704a28b936e5157cd45ec8"
+        }
+      ]
+    }
+  ]
+}

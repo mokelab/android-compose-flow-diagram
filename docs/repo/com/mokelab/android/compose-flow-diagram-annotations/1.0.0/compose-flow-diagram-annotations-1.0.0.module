@@ -1,0 +1,82 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.mokelab.android",
+    "module": "compose-flow-diagram-annotations",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.3.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "compose-flow-diagram-annotations-1.0.0.jar",
+          "url": "compose-flow-diagram-annotations-1.0.0.jar",
+          "size": 1574,
+          "sha512": "cc8459416d39c1dda8fae25cc5dd034bfca6896e3e4ef83115d10943c782909754a49a7413a33fc9d1f5189e2baa87008ad04bf86cfc0cddf763253100645fda",
+          "sha256": "59948c7dd76eb9e78600a62a9cbbe1e02a705d7b51f4be2aca7ee2f526afa667",
+          "sha1": "f014622bc4431b4708a6587acf120e6c18c28101",
+          "md5": "997abcc9253f097ea030af4da9da84bf"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "compose-flow-diagram-annotations-1.0.0.jar",
+          "url": "compose-flow-diagram-annotations-1.0.0.jar",
+          "size": 1574,
+          "sha512": "cc8459416d39c1dda8fae25cc5dd034bfca6896e3e4ef83115d10943c782909754a49a7413a33fc9d1f5189e2baa87008ad04bf86cfc0cddf763253100645fda",
+          "sha256": "59948c7dd76eb9e78600a62a9cbbe1e02a705d7b51f4be2aca7ee2f526afa667",
+          "sha1": "f014622bc4431b4708a6587acf120e6c18c28101",
+          "md5": "997abcc9253f097ea030af4da9da84bf"
+        }
+      ]
+    }
+  ]
+}
