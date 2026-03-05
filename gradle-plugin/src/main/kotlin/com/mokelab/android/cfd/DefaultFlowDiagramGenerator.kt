@@ -17,9 +17,10 @@ class DefaultFlowDiagramGenerator : FlowDiagramGenerator {
 
         // 1. スクリーンショットの同期
         if (screenshotSource?.exists() == true) {
+            val hashRegex = Regex("_[a-z0-9]{8}_")
             screenshotSource.walkTopDown().filter { it.extension == "png" }.forEach { file ->
                 val fileName = file.name
-                val cleanName = fileName.replace(Regex("_[a-z0-9]{8}_"), "_")
+                val cleanName = fileName.replace(hashRegex, "_")
                 val relativePath =
                     file.relativeTo(screenshotSource).parentFile?.path?.replace(File.separator, ".")
                 val finalFileName =
