@@ -1,6 +1,9 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     repositories {
+        maven {
+            url = uri("${settingsDir}/docs/repo")
+        }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -18,6 +21,9 @@ plugins {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven {
+            url = uri("${settingsDir}/docs/repo")
+        }
         google()
         mavenCentral()
     }
@@ -29,3 +35,4 @@ include(":sample:feature:login")
 include(":annotations")
 include(":processor")
 include(":sample:docs-preview")
+include(":gradle-plugin")

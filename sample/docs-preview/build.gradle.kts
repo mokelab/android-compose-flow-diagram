@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.screenshot)
+    id("com.mokelab.android.cfd") version "1.0.0"
 }
 
 android {
@@ -41,8 +41,6 @@ android {
 
 dependencies {
     implementation(projects.sample.feature.login)
-    implementation(projects.annotations)
-    ksp(projects.processor)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -68,6 +66,7 @@ dependencies {
 
 // docs-preview/build.gradle.kts
 
+/*
 tasks.register("generateComposeFlowDiagram") {
     group = "documentation"
     description =
@@ -128,3 +127,4 @@ tasks.register("generateComposeFlowDiagram") {
         logger.lifecycle("✅ Compose Flow Diagram generated at: ${outputDir.absolutePath}")
     }
 }
+ */

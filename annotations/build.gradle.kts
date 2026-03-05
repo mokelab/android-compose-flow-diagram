@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    id("maven-publish")
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -8,5 +9,25 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            // ArtifactId を明示（モジュール名と変えたい場合）
+            groupId = "com.mokelab.android"
+            artifactId = "compose-flow-diagram-annotations"
+            version = "1.0.0"
+
+            // Javaコンポーネント（ソースや依存関係情報）を含める
+            from(components["java"])
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri(rootProject.layout.projectDirectory.dir("docs/repo"))
+        }
     }
 }
