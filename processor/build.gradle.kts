@@ -15,6 +15,7 @@ kotlin {
 dependencies {
     implementation(projects.annotations)
     implementation(libs.symbol.processing.api)
+    testImplementation(libs.junit)
 }
 
 publishing {
