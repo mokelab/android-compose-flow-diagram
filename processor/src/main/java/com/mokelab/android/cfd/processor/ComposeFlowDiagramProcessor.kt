@@ -16,6 +16,8 @@ class ComposeFlowDiagramProcessor(
     private val options: Map<String, String>
 ) : SymbolProcessor {
 
+    private val generator = MermaidContentGenerator()
+
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val symbols = resolver.getSymbolsWithAnnotation("com.mokelab.android.cfd.ScreenNode")
             .filterIsInstance<KSFunctionDeclaration>()
@@ -41,29 +43,21 @@ class ComposeFlowDiagramProcessor(
     ) {
         // 元のKotlinファイル名を取得（例: LoginScreen.kt -> LoginScreen）
         val originalFileName = ksFile.fileName.removeSuffix(".kt")
-        val mermaidContent = StringBuilder().apply {
-            append("```mermaid\ngraph TD\n")
-            // 前述の Mermaid 10+ 記法でコンテンツを構築
-            functions.forEach { function ->
-                val annotation =
-                    function.annotations.find { it.shortName.asString() == "ScreenNode" }
-                        ?: return@forEach
-                val displayName =
-                    annotation.arguments.find { it.name?.asString() == "displayName" }?.value as? String
-                        ?: ""
-                val routesTo =
-                    (annotation.arguments.find { it.name?.asString() == "routesTo" }?.value as? List<*>)?.filterIsInstance<String>()
-                        ?: emptyList()
-
-                val packageName = function.packageName.asString()
-                val functionName = function.simpleName.asString()
-                val screenshotId = "${packageName}.${originalFileName}Kt.${functionName}_0"
-                val imagePath = "./screenshots/${screenshotId}.png"
-
-                append("    ${functionName}[\"<div><b>$displayName</b></div><img src='$imagePath' width='200'/>\"]\n")
-                routesTo.forEach { target -> append("    $functionName --> $target\n") }
-            }
-            append("```\n")
+        val nodes = functions.mapNotNull { function ->
+            val annotation = function.annotations.find { it.shortName.asString() == "ScreenNode" }
+                ?: return@mapNotNull null
+            val displayName =
+                annotation.arguments.find { it.name?.asString() == "displayName" }?.value as? String
+                    ?: ""
+            val routesTo =
+                (annotation.arguments.find { it.name?.asString() == "routesTo" }?.value as? List<*>)?.filterIsInstance<String>()
+                    ?: emptyList()
+            ScreenNodeInfo(
+                functionName = function.simpleName.asString(),
+                packageName = function.packageName.asString(),
+                displayName = displayName,
+                routesTo = routesTo
+            )
         }
 
         // 3. Kotlinファイル名に基づいた .md ファイルを作成
@@ -74,7 +68,7 @@ class ComposeFlowDiagramProcessor(
             fileName = "${originalFileName}Flow",
             extensionName = "md"
         )
-        file.write(mermaidContent.toString().toByteArray())
+        file.write(generator.generate(originalFileName, nodes).toByteArray())
         file.close()
     }
 }

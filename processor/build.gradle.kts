@@ -15,6 +15,12 @@ kotlin {
 dependencies {
     implementation(projects.annotations)
     implementation(libs.symbol.processing.api)
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 publishing {
