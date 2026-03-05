@@ -17,6 +17,12 @@ dependencies {
     // Android Gradle Plugin や KSP Plugin の型にアクセスするために必要
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.ksp.gradle.plugin)
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 group = "com.mokelab.android"
